@@ -17,12 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kasım Uğur — Portfolio",
+  title: "Kasım Uğur - Portfolio",
   description:
     "Next.js ve Tailwind ile inşa edilmiş modern bir portföy. Kasım Uğur'un öne çıkan projelerini, teknik becerilerini ve iletişim kanallarını keşfedin.",
   metadataBase: new URL("https://kasim-portfolio.local"),
   openGraph: {
-    title: "Kasım Uğur — Portfolio",
+    title: "Kasım Uğur - Portfolio",
     description:
       "Next.js ve Tailwind ile inşa edilmiş modern bir portföy. Öne çıkan projeler, teknik beceriler ve iletişim alanı.",
     url: "https://kasim-portfolio.local",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kasım Uğur — Portfolio",
+    title: "Kasım Uğur - Portfolio",
     description:
       "Frontend & Full-stack developer. React ve Next.js odaklı arayüzler ve ürünler.",
   },
@@ -46,10 +46,10 @@ export default function RootLayout({
   return (
     <html lang="tr" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-slate-50 antialiased  dark:bg-slate-950`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-slate-950 text-slate-100 antialiased`}
       >
         <ThemeProvider>
-          <FloatingIcons  />
+          <FloatingIcons />
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <div className="flex-1">{children}</div>

@@ -19,9 +19,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       whileInView={{ opacity: 1, translateY: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white/80 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/70"
+      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/70 shadow-[0_24px_70px_rgba(2,6,23,0.45)] transition-shadow hover:shadow-[0_30px_90px_rgba(2,6,23,0.55)]"
     >
-      <div className="relative h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
         {featured ? (
           <Badge tone="accent" className="absolute left-5 top-5 z-10">
             Featured
@@ -44,8 +44,8 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       </div>
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div>
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h3>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{desc}</p>
+          <h3 className="text-lg font-semibold text-slate-100">{title}</h3>
+          <p className="mt-2 text-sm text-slate-300">{desc}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           {stack.map((tech) => (
@@ -60,7 +60,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               href={demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 transition hover:text-indigo-700 dark:text-indigo-300 dark:hover:text-indigo-200"
+              className="inline-flex items-center gap-1 text-sm font-medium text-indigo-300 transition-colors hover:text-indigo-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               Demo
               <ArrowUpRight size={16} strokeWidth={2} />
@@ -71,7 +71,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               href={repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+              className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 transition-colors hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               Repo
               <Github size={16} strokeWidth={2} />

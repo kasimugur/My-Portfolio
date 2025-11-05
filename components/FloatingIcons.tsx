@@ -14,7 +14,7 @@ type IconConfig = {
   rotationDuration: number;   // kendi etrafında dönüş süresi (s)
   rotateDir: 1 | -1;
   opacity: number;
-  vanishAt: number;           // 0..1 arası, ne zaman “ani kaybolsun”
+  vanishAt: number;           // 0..1 arası, ne zaman "ani kaybolsun"
 };
 
 const ASSET_DIR = "/assets";
@@ -28,7 +28,21 @@ const ICON_FILES = [
   "jest.png",
   "redux.png",
   "python.png",
-  "django.png",
+  "css3.png",
+  "formik.png",
+  "sass.png",
+  "bootstrap.png",
+  "postman.png",
+  "git.png",
+  "github.png",
+  "mui.png",
+  "nodejs.png",
+  "reactjs.png",
+  "SQLite.png",
+  "styledComponent.png",
+  "testing-library.png",
+  "vscode.png",
+  "postgres.png",
 ];
 
 const rnd = (min: number, max: number) => Math.random() * (max - min) + min;
@@ -44,7 +58,7 @@ function pickPerimeterPoint(w: number, h: number, m: number) {
   }
 }
 
-// Dalgalı (sinüslü) yol için x/y keyframe’leri üret
+// Dalgalı (sinüslü) yol için x/y keyframe'leri üret
 function wavyKeyframes(
   sx: number, sy: number, ex: number, ey: number,
   segs: number, amp: number, waves: number, phase: number
@@ -92,7 +106,7 @@ function buildConfigs(
     }
 
     // Dalga parametreleri
-    const segs = 6;                         // yol karmaşıklığı (keyframe sayısı)
+    const segs = 5;                         // yol karmaşıklığı (keyframe sayısı)
     const amp = rnd(16, Math.min(w, h) * 0.06); // sapma genliği (px)
     const waves = Math.floor(rnd(1, 3.9));  // 1..3 tam dalga
     const phase = rnd(0, Math.PI * 2);
@@ -111,7 +125,7 @@ function buildConfigs(
       rotationDuration: rnd(6, 14),
       rotateDir: Math.random() < 0.5 ? 1 : -1,
       opacity: rnd(0.14, 0.28),
-      vanishAt: rnd(0.35, 0.8),       // rastgele mesafede “ani yok ol”
+      vanishAt: rnd(0.35, 0.5),       // rastgele mesafede "ani yok ol"
     };
   });
 }
@@ -168,49 +182,49 @@ export function FloatingIcons() {
             prefersReduced
               ? { x: c.xKeys[0], y: c.yKeys[0], opacity: c.opacity, rotate: 0 }
               : {
-                  x: c.xKeys,
-                  y: c.yKeys,
-                  rotate: c.rotateDir === 1 ? [0, 360] : [0, -360],
-                  // 0 -> görünür -> (vanishAt’te) aniden yok -> görünmez kal
-                  opacity: [0, c.opacity, c.opacity, 0, 0],
-                }
+                x: c.xKeys,
+                y: c.yKeys,
+                rotate: c.rotateDir === 1 ? [0, 360] : [0, -360],
+                // 0 -> görünür -> (vanishAt'te) aniden yok -> görünmez kal
+                opacity: [0, c.opacity, c.opacity, 0, 0],
+              }
           }
           transition={
             prefersReduced
               ? { opacity: { duration: 0.6 } }
               : {
-                  // dalgalı yol: keyframe sayısına eşit times
-                  x: {
-                    duration: c.duration,
-                    ease: "linear",
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    delay: c.delay,
-                    times: c.xKeys.map((_, i, arr) => i / (arr.length - 1)),
-                  },
-                  y: {
-                    duration: c.duration,
-                    ease: "linear",
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    delay: c.delay,
-                    times: c.yKeys.map((_, i, arr) => i / (arr.length - 1)),
-                  },
-                  rotate: {
-                    duration: c.rotationDuration,
-                    ease: "linear",
-                    repeat: Infinity,
-                  },
-                  // opacity: vanishAt’te ani düşüş
-                  opacity: {
-                    duration: c.duration,
-                    ease: "linear",
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    delay: c.delay,
-                    times: [0, 0.08, c.vanishAt, Math.min(c.vanishAt + 0.02, 0.98), 1],
-                  },
-                }
+                // dalgalı yol: keyframe sayısına eşit times
+                x: {
+                  duration: c.duration,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  delay: c.delay,
+                  times: c.xKeys.map((_, i, arr) => i / (arr.length - 1)),
+                },
+                y: {
+                  duration: c.duration,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  delay: c.delay,
+                  times: c.yKeys.map((_, i, arr) => i / (arr.length - 1)),
+                },
+                rotate: {
+                  duration: c.rotationDuration,
+                  ease: "linear",
+                  repeat: Infinity,
+                },
+                // opacity: vanishAt'te ani düşüş
+                opacity: {
+                  duration: c.duration,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  delay: c.delay,
+                  times: [0, 0.08, c.vanishAt, Math.min(c.vanishAt + 0.02, 0.98), 1],
+                },
+              }
           }
           style={{ willChange: "transform, opacity" }}
         >

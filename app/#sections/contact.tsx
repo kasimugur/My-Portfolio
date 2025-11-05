@@ -31,10 +31,10 @@ export function ContactSection() {
         <p className="mt-4 text-base text-slate-600 dark:text-slate-300">
           Formu kullanarak kısa bir mesaj bırakabilir veya doğrudan{' '}
           <a
-            href="mailto:hello@kasimugur.dev"
+            href="mailto:kasimugur.contact@gmail.com"
             className="text-indigo-600 underline-offset-4 transition hover:underline dark:text-indigo-300"
           >
-            hello@kasimugur.dev
+            kasimugur.contact@gmail.com
           </a>{' '}
           adresinden iletişime geçebilirsin.
         </p>
