@@ -3,16 +3,25 @@
 import { motion } from "framer-motion";
 import { projects as projectData } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
+import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
 
 const sortedProjects = [...projectData].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
 
+const headerVariants = {
+  hidden: { opacity: 0, translateY: 24 },
+  visible: { opacity: 1, translateY: 0 },
+};
+
 export function ProjectsSection() {
+  const { ref, controls } = useInViewAnimation<HTMLDivElement>({ amount: 0.4 });
+
   return (
     <section id="projects" className="mx-auto w-full max-w-6xl px-4 z-30 pb-20">
       <motion.div
-        initial={{ opacity: 0, translateY: 24 }}
-        whileInView={{ opacity: 1, translateY: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={headerVariants}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mx-auto max-w-3xl text-center"
       >

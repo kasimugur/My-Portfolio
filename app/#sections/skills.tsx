@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "@/components/badge";
+import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
 
 const primarySkills = [
   "HTML5",
@@ -38,13 +39,21 @@ const primarySkills = [
 
 const learningNext = ["Node.js", "Docker", "React Native"];
 
+const sectionVariants = {
+  hidden: { opacity: 0, translateY: 32 },
+  visible: { opacity: 1, translateY: 0 },
+};
+
 export function SkillsSection() {
+  const { ref, controls } = useInViewAnimation<HTMLElement>({ amount: 0.3 });
+
   return (
     <motion.section
+      ref={ref}
       id="skills"
-      initial={{ opacity: 0, translateY: 32 }}
-      whileInView={{ opacity: 1, translateY: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      initial="hidden"
+      animate={controls}
+      variants={sectionVariants}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="mx-auto w-full max-w-6xl px-4 py-20 z-30"
     >

@@ -3,9 +3,23 @@
 import { FormEvent, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/badge";
+import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
+
+const headerVariants = {
+  hidden: { opacity: 0, translateY: 24 },
+  visible: { opacity: 1, translateY: 0 },
+};
+
+const formVariants = {
+  hidden: { opacity: 0, translateY: 32 },
+  visible: { opacity: 1, translateY: 0 },
+};
 
 export function ContactSection() {
   const [showToast, setShowToast] = useState(false);
+
+  const headerAnimation = useInViewAnimation<HTMLDivElement>({ amount: 0.4 });
+  const formAnimation = useInViewAnimation<HTMLFormElement>({ amount: 0.4 });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -18,9 +32,10 @@ export function ContactSection() {
   return (
     <section id="contact" className="mx-auto w-full max-w-5xl px-4 pb-24 pt-12">
       <motion.div
-        initial={{ opacity: 0, translateY: 24 }}
-        whileInView={{ opacity: 1, translateY: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        ref={headerAnimation.ref}
+        initial="hidden"
+        animate={headerAnimation.controls}
+        variants={headerVariants}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mx-auto max-w-2xl text-center"
       >
@@ -40,10 +55,11 @@ export function ContactSection() {
         </p>
       </motion.div>
       <motion.form
+        ref={formAnimation.ref}
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, translateY: 32 }}
-        whileInView={{ opacity: 1, translateY: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        initial="hidden"
+        animate={formAnimation.controls}
+        variants={formVariants}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         className="mx-auto mt-12 grid w-full max-w-2xl gap-6 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-xl backdrop-blur dark:border-slate-800 dark:bg-slate-950/70"
       >

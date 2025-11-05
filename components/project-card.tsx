@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import { Badge } from "./badge";
 import type { Project } from "@/lib/projects";
+import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
+
+const projectCardVariants = {
+  hidden: { opacity: 0, translateY: 24 },
+  visible: { opacity: 1, translateY: 0 },
+};
 
 export type ProjectCardProps = {
   project: Project;
@@ -13,11 +19,13 @@ export type ProjectCardProps = {
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { title, desc, stack, demo, repo, featured, image } = project;
+  const animation = useInViewAnimation<HTMLElement>({ amount: 0.3 });
   return (
     <motion.article
-      initial={{ opacity: 0, translateY: 24 }}
-      whileInView={{ opacity: 1, translateY: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      ref={animation.ref}
+      initial="hidden"
+      animate={animation.controls}
+      variants={projectCardVariants}
       transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
       className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/70 shadow-[0_24px_70px_rgba(2,6,23,0.45)] transition-shadow hover:shadow-[0_30px_90px_rgba(2,6,23,0.55)]"
     >
