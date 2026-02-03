@@ -19,6 +19,15 @@ export const projects: Project[] = [
     image: "/images/mikrosatici.svg",
   },
   {
+  title: "Yaş Hesaplama Uygulaması (Age Calculator)",
+  desc: "Kullanıcıların doğum tarihlerini girerek yıl, ay ve gün bazında kesin yaşlarını hesaplamalarına olanak tanıyan, form doğrulama özellikli ve duyarlı (responsive) web uygulaması.",
+  stack: ["HTML", "CSS","SCSS", "JavaScript"],
+  demo: "https://age-calculator-birthday.netlify.app/",
+  repo: "https://github.com/kasimugur/age-culculator-app",
+  featured: true,
+  image: "/public/agecalculator.png", // Görsel yolunu projenize göre images/age-calculator.pnggüncelleyebilirsiniz
+},
+  {
     title: "Formik + Yup Çok Adımlı Form",
     desc: "Çok adımlı form sihirbazı, şema tabanlı doğrulama ve RTL/Jest testleri ile güvenilir kullanıcı deneyimi.",
     stack: ["React", "Formik", "Yup", "RTL", "Jest"],

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -25,15 +25,15 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, translateY: 24 }}
                 animate={{ opacity: 1, translateY: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
                 className="space-y-6"
               >
                 <Badge tone="accent">Frontend / Full-stack</Badge>
                 <h1 className="text-4xl font-bold leading-tight tracking-tight text-slate-100 md:text-5xl lg:text-6xl">
-                  Hi, I&apos;m Kas�m U�ur
+                  Hi, I&apos;m Kasım Uğur
                 </h1>
                 <p className="max-w-xl text-lg text-slate-300">
-                  Full-stack/Frontend Developer. React & Next.js odakl� aray�zler ve �l�eklenebilir web uygulamalar� geli�tiriyorum; tasar�m sistemlerini �retim h�z�na d�n��t�rmeyi seviyorum.
+                  Full-stack/Frontend Developer. React & Next.js odakl� aray�zler ve �l�eklenebilir web uygulamaları geliştiriyorum; tasarım sistemlerini �retim h�z�na d�n��t�rmeyi seviyorum.
                 </p>
                 <div className="flex flex-col items-start gap-3 sm:flex-row">
                   <ScrollLink
