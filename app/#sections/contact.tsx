@@ -1,9 +1,10 @@
 ﻿"use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/badge";
 import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
+import emailjs from '@emailjs/browser'
 
 const headerVariants = {
   hidden: { opacity: 0, translateY: 24 },
@@ -17,16 +18,50 @@ const formVariants = {
 
 export function ContactSection() {
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null)
 
   const headerAnimation = useInViewAnimation<HTMLDivElement>({ amount: 0.4 });
   const formAnimation = useInViewAnimation<HTMLFormElement>({ amount: 0.4 });
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setShowToast(true);
-    const form = event.currentTarget;
-    form.reset();
-    window.setTimeout(() => setShowToast(false), 3200);
+    
+    const formElement = event.currentTarget; // ✅ event'ten al, ref yerine
+    setIsSubmitting(true);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error('EmailJS configuration is missing');
+      setToastMessage("Configuration error. Please contact the administrator.");
+      setShowToast(true);
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      await emailjs.sendForm(
+        serviceId,
+        templateId,
+        formElement, // ✅ event.currentTarget kullan
+        publicKey
+      );
+      
+      console.log('Email sent successfully');
+      setToastMessage("Thanks for your message! I'll get back soon.");
+      setShowToast(true);
+      formElement.reset(); // ✅ Çalışacak
+    } catch (error) {
+      console.error('E-posta gönderme hatası:', error);
+      setToastMessage("Oops! Something went wrong. Please try again.");
+      setShowToast(true);
+    } finally {
+      setIsSubmitting(false);
+      window.setTimeout(() => setShowToast(false), 3200);
+    }
   };
 
   return (
@@ -69,7 +104,7 @@ export function ContactSection() {
           </label>
           <input
             id="name"
-            name="name"
+            name="from_name"
             type="text"
             required
             placeholder="Your name"
@@ -82,7 +117,7 @@ export function ContactSection() {
           </label>
           <input
             id="email"
-            name="email"
+            name="from_email"
             type="email"
             required
             placeholder="you@example.com"
@@ -106,8 +141,8 @@ export function ContactSection() {
           <button
             type="submit"
             className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-          >
-            Send message
+          >{isSubmitting ? 'Sending...' : 'Send message'}
+
           </button>
           <Badge tone="neutral" className="text-xs uppercase tracking-widest">
             Avg. response: &lt; 24h
@@ -126,10 +161,14 @@ export function ContactSection() {
             className="fixed bottom-6 right-6 flex items-center gap-3 rounded-2xl border border-indigo-100 bg-white px-4 py-3 text-sm text-slate-700 shadow-2xl dark:border-indigo-500/30 dark:bg-slate-900 dark:text-slate-200"
           >
             <span className="inline-flex h-2 w-2 rounded-full bg-indigo-500" aria-hidden="true" />
-            Thanks for your message! I&apos;ll get back soon.
+            {toastMessage}
+
           </motion.div>
         ) : null}
       </AnimatePresence>
     </section>
+
+
   );
+
 }
