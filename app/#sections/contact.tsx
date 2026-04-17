@@ -79,14 +79,14 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
           Let&apos;s build something together.
         </h2>
         <p className="mt-4 text-base text-slate-600 dark:text-slate-300">
-          Formu kullanarak kısa bir mesaj bırakabilir veya doğrudan{' '}
+          You can leave a short message using the form, or contact me directly at 
           <a
             href="mailto:kasimugur.contact@gmail.com"
             className="text-indigo-600 underline-offset-4 transition hover:underline dark:text-indigo-300"
           >
-            kasimugur.contact@gmail.com
+            kasimugur.contact@gmail.com .
           </a>{' '}
-          adresinden iletişime geçebilirsin.
+          
         </p>
       </motion.div>
       <motion.form

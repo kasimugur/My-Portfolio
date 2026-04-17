@@ -33,7 +33,9 @@ export default function HomePage() {
                   Hi, I&apos;m Kasım Uğur
                 </h1>
                 <p className="max-w-xl text-lg text-slate-300">
-                  Full-stack/Frontend Developer. React & Next.js odakl� aray�zler ve �l�eklenebilir web uygulamaları geliştiriyorum; tasarım sistemlerini �retim h�z�na d�n��t�rmeyi seviyorum.
+                  I build products using React, Next.js, and modern frontend architectures.
+                  Component-driven design, performance optimization, and developer experience are my priorities.
+                  I aim to build testable and scalable systems.
                 </p>
                 <div className="flex flex-col items-start gap-3 sm:flex-row">
                   <ScrollLink
@@ -43,15 +45,16 @@ export default function HomePage() {
                     duration={500}
                     className="inline-flex cursor-pointer items-center gap-2 rounded-2xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(79,70,229,0.35)] transition hover:bg-indigo-500"
                   >
-                    Son projelerime g�z at
-                    <ArrowDownRight size={18} />  
+                    Check out my latest projects
+                    <ArrowDownRight size={18} />
                   </ScrollLink>
-                  <a
-                    href="mailto:kasimugur.contact@gmail.com"
+                  <ScrollLink
+                    to="contact"
+
                     className="inline-flex items-center gap-2 rounded-2xl border border-indigo-500/40 px-6 py-3 text-sm font-semibold text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-200"
                   >
-                    Mail g�nder
-                  </a>
+                    Send email
+                  </ScrollLink>
                 </div>
               </motion.div>
               <motion.div
@@ -85,7 +88,7 @@ export default function HomePage() {
             >
               <Image
                 src={kasim}
-                alt="Kas�m U�ur placeholder"
+                alt="Kasim Uğur placeholder"
                 fill
                 sizes="320px"
                 className="object-cover z-40"

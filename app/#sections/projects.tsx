@@ -30,7 +30,7 @@ export function ProjectsSection() {
           My more important projects are the ones that bring measurable value.
         </h2>
         <p className="mt-4 text-base text-slate-300">
-          Ürün analitiği, kullanıcı geribildirimi ve takım uyumunu merkeze alarak geliştirdiğim projeler burada.
+          Here are the projects I've developed, focusing on product analytics, user feedback, and team cohesion.
         </p>
       </motion.div>
       <div className="mt-14 grid gap-8 md:grid-cols-2">
