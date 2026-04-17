@@ -4,7 +4,7 @@ import { FormEvent, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/badge";
 import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
-import emailjs from '@emailjs/browser'
+import emailjs from '@emailjs/browser';
 
 const headerVariants = {
   hidden: { opacity: 0, translateY: 24 },
@@ -20,14 +20,15 @@ export function ContactSection() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null)
+  const formRef = useRef<HTMLFormElement>(null);
 
   const headerAnimation = useInViewAnimation<HTMLDivElement>({ amount: 0.4 });
   const formAnimation = useInViewAnimation<HTMLFormElement>({ amount: 0.4 });
-const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     
-    const formElement = event.currentTarget; // ✅ event'ten al, ref yerine
+    const formElement = event.currentTarget;
     setIsSubmitting(true);
 
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
@@ -46,14 +47,14 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
       await emailjs.sendForm(
         serviceId,
         templateId,
-        formElement, // ✅ event.currentTarget kullan
+        formElement,
         publicKey
       );
       
       console.log('Email sent successfully');
       setToastMessage("Thanks for your message! I'll get back soon.");
       setShowToast(true);
-      formElement.reset(); // ✅ Çalışacak
+      formElement.reset();
     } catch (error) {
       console.error('E-posta gönderme hatası:', error);
       setToastMessage("Oops! Something went wrong. Please try again.");
@@ -74,21 +75,24 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mx-auto max-w-2xl text-center"
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-indigo-500">Contact</p>
-        <h2 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-white md:text-4xl">
+        <p className="text-xs uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400">
+          Contact
+        </p>
+        <h2 className="mt-3 text-slate-900 dark:text-slate-100 text-3xl font-semibold md:text-4xl">
           Let&apos;s build something together.
         </h2>
-        <p className="mt-4 text-base text-slate-600 dark:text-slate-300">
-          You can leave a short message using the form, or contact me directly at 
+        <p className="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          You can leave a short message using the form, or contact me directly at{' '}
           <a
             href="mailto:kasimugur.contact@gmail.com"
             className="text-indigo-600 underline-offset-4 transition hover:underline dark:text-indigo-300"
           >
-            kasimugur.contact@gmail.com .
-          </a>{' '}
-          
+            kasimugur.contact@gmail.com
+          </a>
+          .
         </p>
       </motion.div>
+
       <motion.form
         ref={formAnimation.ref}
         onSubmit={handleSubmit}
@@ -96,7 +100,9 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         animate={formAnimation.controls}
         variants={formVariants}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="mx-auto mt-12 grid w-full max-w-2xl gap-6 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-xl backdrop-blur dark:border-slate-800 dark:bg-slate-950/70"
+        className="mx-auto mt-12 grid w-full max-w-2xl gap-6 rounded-3xl 
+                   border border-slate-200 bg-white/90 p-8 shadow-xl backdrop-blur 
+                   dark:border-slate-800 dark:bg-slate-950/70"
       >
         <div className="grid gap-2">
           <label htmlFor="name" className="text-sm font-medium text-slate-700 dark:text-slate-200">
@@ -108,9 +114,12 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
             type="text"
             required
             placeholder="Your name"
-            className="rounded-xl border border-slate-300/70 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition 
+                       focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                       dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
           />
         </div>
+
         <div className="grid gap-2">
           <label htmlFor="email" className="text-sm font-medium text-slate-700 dark:text-slate-200">
             Email
@@ -121,9 +130,12 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
             type="email"
             required
             placeholder="you@example.com"
-            className="rounded-xl border border-slate-300/70 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition 
+                       focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                       dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
           />
         </div>
+
         <div className="grid gap-2">
           <label htmlFor="message" className="text-sm font-medium text-slate-700 dark:text-slate-200">
             Message
@@ -134,21 +146,25 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
             required
             rows={4}
             placeholder="Tell me a little about the project..."
-            className="rounded-xl border border-slate-300/70 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+            className="rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm transition 
+                       focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                       dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
           />
         </div>
+
         <div className="flex flex-col items-start gap-4 text-sm text-slate-600 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="submit"
             className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-          >{isSubmitting ? 'Sending...' : 'Send message'}
-
+          >
+            {isSubmitting ? 'Sending...' : 'Send message'}
           </button>
           <Badge tone="neutral" className="text-xs uppercase tracking-widest">
             Avg. response: &lt; 24h
           </Badge>
         </div>
       </motion.form>
+
       <AnimatePresence>
         {showToast ? (
           <motion.div
@@ -158,17 +174,14 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
             transition={{ duration: 0.3 }}
             role="status"
             aria-live="polite"
-            className="fixed bottom-6 right-6 flex items-center gap-3 rounded-2xl border border-indigo-100 bg-white px-4 py-3 text-sm text-slate-700 shadow-2xl dark:border-indigo-500/30 dark:bg-slate-900 dark:text-slate-200"
+            className="fixed bottom-6 right-6 flex items-center gap-3 rounded-2xl border border-indigo-100 bg-white px-4 py-3 text-sm text-slate-700 shadow-2xl 
+                       dark:border-indigo-500/30 dark:bg-slate-900 dark:text-slate-200"
           >
             <span className="inline-flex h-2 w-2 rounded-full bg-indigo-500" aria-hidden="true" />
             {toastMessage}
-
           </motion.div>
         ) : null}
       </AnimatePresence>
     </section>
-
-
   );
-
 }

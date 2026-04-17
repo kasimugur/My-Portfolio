@@ -20,6 +20,7 @@ export type ProjectCardProps = {
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { title, desc, stack, demo, repo, featured, image } = project;
   const animation = useInViewAnimation<HTMLElement>({ amount: 0.3 });
+
   return (
     <motion.article
       ref={animation.ref}
@@ -27,14 +28,19 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       animate={animation.controls}
       variants={projectCardVariants}
       transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/70 shadow-[0_24px_70px_rgba(2,6,23,0.45)] transition-shadow hover:shadow-[0_30px_90px_rgba(2,6,23,0.55)]"
+      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border 
+                 border-slate-200 bg-white shadow-xl transition-all hover:shadow-2xl
+                 dark:border-slate-800 dark:bg-slate-900/70 
+                 dark:shadow-[0_24px_70px_rgba(2,6,23,0.45)] dark:hover:shadow-[0_30px_90px_rgba(2,6,23,0.55)]"
     >
-      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+      {/* Image / Thumbnail Area */}
+      <div className="relative h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
         {featured ? (
           <Badge tone="accent" className="absolute left-5 top-5 z-10">
             Featured
           </Badge>
         ) : null}
+
         {image ? (
           <Image
             src={image}
@@ -50,11 +56,17 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         )}
       </div>
+
+      {/* Content Area */}
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div>
-          <h3 className="text-lg font-semibold text-slate-100">{title}</h3>
-          <p className="mt-2 text-sm text-slate-300">{desc}</p>
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+            {title}
+          </h3>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{desc}</p>
         </div>
+
+        {/* Tech Stack */}
         <div className="flex flex-wrap gap-2">
           {stack.map((tech) => (
             <Badge key={tech} tone="neutral">
@@ -62,24 +74,37 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             </Badge>
           ))}
         </div>
+
+        {/* Links */}
         <div className="mt-auto flex items-center gap-3">
           {demo ? (
             <a
               href={demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-indigo-300 transition-colors hover:text-indigo-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              className="inline-flex items-center gap-1 text-sm font-medium 
+                         text-indigo-600 dark:text-indigo-300 
+                         transition-colors hover:text-indigo-500 dark:hover:text-indigo-200
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 
+                         focus-visible:ring-offset-2 focus-visible:ring-offset-white 
+                         dark:focus-visible:ring-offset-slate-900"
             >
               Demo
               <ArrowUpRight size={16} strokeWidth={2} />
             </a>
           ) : null}
+
           {repo ? (
             <a
               href={repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 transition-colors hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              className="inline-flex items-center gap-1 text-sm font-medium 
+                         text-slate-600 dark:text-slate-400 
+                         transition-colors hover:text-slate-700 dark:hover:text-slate-200
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 
+                         focus-visible:ring-offset-2 focus-visible:ring-offset-white 
+                         dark:focus-visible:ring-offset-slate-900"
             >
               Repo
               <Github size={16} strokeWidth={2} />

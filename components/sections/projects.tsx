@@ -5,7 +5,9 @@ import { projects as projectData } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
 
-const sortedProjects = [...projectData].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+const sortedProjects = [...projectData].sort(
+  (a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))
+);
 
 const headerVariants = {
   hidden: { opacity: 0, translateY: 24 },
@@ -25,14 +27,18 @@ export function ProjectsSection() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mx-auto max-w-3xl text-center"
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-indigo-400">Projects</p>
-        <h2 className="mt-3 text-3xl font-semibold text-slate-100 md:text-4xl">
+        <p className="text-xs uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-400">
+          Projects
+        </p>
+        <h2 className="mt-3 text-slate-900 dark:text-slate-100 text-3xl font-semibold md:text-4xl">
           My more important projects are the ones that bring measurable value.
         </h2>
-        <p className="mt-4 text-base text-slate-300">
-          Here are the projects I've developed, focusing on product analytics, user feedback, and team cohesion.
+        <p className="mt-4 text-slate-600 dark:text-slate-300 text-base">
+          Here are the projects I've developed, focusing on product analytics,
+          user feedback, and team cohesion.
         </p>
       </motion.div>
+
       <div className="mt-14 grid gap-8 md:grid-cols-2">
         {sortedProjects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />

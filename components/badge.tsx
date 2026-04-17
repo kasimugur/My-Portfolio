@@ -10,9 +10,9 @@ const badgeVariants = cva(
   {
     variants: {
       tone: {
-        default: "border-slate-700 bg-slate-900/70 text-slate-200",
+        default: "border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200",
         accent: "border-transparent bg-gradient-to-r from-indigo-500/90 to-purple-500/90 text-white",
-        neutral: "border-slate-700 bg-slate-900/50 text-slate-300",
+        neutral: "border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-300",
       },
     },
     defaultVariants: {
