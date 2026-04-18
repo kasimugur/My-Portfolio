@@ -21,7 +21,7 @@ export default function HomePage() {
       <main className="flex flex-col gap-12">
         {/* HERO SECTION */}
         <section
-          className="bg-gradient-to-b 
+          className="bg-linear-to-b 
                      from-slate-50 via-slate-100 to-slate-100 
                      dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 
                      px-4 pb-24 pt-32"
