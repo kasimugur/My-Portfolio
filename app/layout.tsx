@@ -17,26 +17,48 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
 });
+// // english metadata 
+// export const metadata: Metadata = {
+//   title: "Kasım Uğur - Portfolio",
+//   description:
+//     "Modern portfolio built with Next.js and Tailwind CSS. Discover my featured projects, technical skills, and get in touch.",
+//   metadataBase: new URL('https://kasimugur.vercel.app/'), 
+//   openGraph: {
+//     title: "Kasım Uğur - Portfolio",
+//     description:
+//       "Frontend & Full-stack developer specializing in React and Next.js. Building fast, scalable, and beautiful digital experiences.",
+//     url: "https://kasimugur.vercel.app/",
+//     siteName: "Kasım Uğur Portfolio",
+//     locale: "en_US",
+//     type: "website",
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "Kasım Uğur - Portfolio",
+//     description:
+//       "Frontend & Full-stack developer • React, Next.js, TypeScript",
+//   },
+// };
 
 export const metadata: Metadata = {
-  title: "Kasım Uğur - Portfolio",
+  title: "Kasım Uğur - Portfolyo",
   description:
-    "Modern portfolio built with Next.js and Tailwind CSS. Discover my featured projects, technical skills, and get in touch.",
-  metadataBase: new URL('https://kasimugur.com'), // Gerçek domainini buraya yaz
+    "Next.js ve Tailwind CSS ile inşa edilmiş modern portfolyo. Öne çıkan projelerimi, teknik becerilerimi keşfedin ve iletişime geçin.",
+  metadataBase: new URL('https://kasimugur.vercel.app/'), 
   openGraph: {
-    title: "Kasım Uğur - Portfolio",
+    title: "Kasım Uğur - Portfolyo",
     description:
-      "Frontend & Full-stack developer specializing in React and Next.js. Building fast, scalable, and beautiful digital experiences.",
-    url: "https://kasimugur.com",
-    siteName: "Kasım Uğur Portfolio",
-    locale: "en_US",
+      "React ve Next.js konularında uzmanlaşmış Frontend & Full-stack geliştirici. Hızlı, ölçeklenebilir ve estetik dijital deneyimler geliştiriyorum.",
+    url: "https://kasimugur.vercel.app/",
+    siteName: "Kasım Uğur Portfolyo",
+    locale: "tr_TR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kasım Uğur - Portfolio",
+    title: "Kasım Uğur - Portfolyo",
     description:
-      "Frontend & Full-stack developer • React, Next.js, TypeScript",
+      "Frontend & Full-stack Geliştirici • React, Next.js, TypeScript",
   },
 };
 
@@ -46,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >

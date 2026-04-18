@@ -1,9 +1,9 @@
 
-# 🚀 Kasım Uğur | Modern Portfolio v2
+# 🚀 Kasım Uğur | Modern Portfolio 
 
 This project is a modern, high-performance, and SEO-focused portfolio website built with **Next.js 16**, **Tailwind CSS v4**, and **Framer Motion**.
 
-![Portfolio Preview](https://via.placeholder.com/1200x600?text=Kasim+Ugur+Portfolio+Preview)
+![Portfolio Preview](./public/banner.png)
 
 ---
 
@@ -56,7 +56,7 @@ The project is fully optimized for search engines and social media platforms:
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/kasimugur/portfoliov1.git
+git clone https://github.com/kasimugur/portfolio.git
 ```
 
 2. **Install dependencies:**
@@ -78,7 +78,6 @@ npm run dev
 * **VibeBlog:** A modern news platform powered by NewsAPI with real-time data flow. Demonstrates SSR, URL-based state management, and Error Boundaries.
 * **CineSearch:** A movie discovery and detail platform powered by the TVMaze API.
 * **NexusDash:** A modern SaaS prototyping engine.
-* **MikroSatıcı:** A comprehensive management panel for e-commerce operations.
 
 ---
 
@@ -86,7 +85,8 @@ npm run dev
 
 * **LinkedIn:** [https://linkedin.com/in/kasimugur](https://linkedin.com/in/kasimugur)
 * **Email:** [kasimugur.contact@gmail.com](mailto:kasimugur.contact@gmail.com)
-* **Website:** [https://kasimugur.github.io/portfoliov1/](https://kasimugur.github.io/portfoliov1/)
+* **Github:** [https://github.com/kasimugur/portfolio/](https://github.com/kasimugur/portfolio)
+* **Website:** [https://kasimugur.vercel.app/](https://kasimugur.vercel.app/)
 
 ---
 

@@ -11,8 +11,8 @@ import { ProjectsSection } from "@/components/sections/projects";
 import { ContactSection } from "@/components/sections/contact";
 
 const timeline = [
-  { year: "2025", label: "Portfolio v1 yayında" },
-  { year: "2025", label: "E-ticaret Paneli beta" },
+  { year: "2026", label: "VibeBlog is live!" },
+  { year: "2026", label: "E-commerce Panel beta coming soon." },
 ];
 
 export default function HomePage() {
@@ -20,7 +20,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <main className="flex flex-col gap-12">
         {/* HERO SECTION */}
-        <section
+        <section id="home"
           className="bg-linear-to-b 
                      from-slate-50 via-slate-100 to-slate-100 
                      dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 
@@ -87,7 +87,7 @@ export default function HomePage() {
                 transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
                 className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6"
               >
-                <div className="pointer-events-none absolute left-4 right-4 top-[52%] hidden h-px bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-300 opacity-70 dark:from-indigo-800/50 dark:via-indigo-500/60 dark:to-indigo-800/50 sm:block" />
+                <div className="pointer-events-none absolute left-4 right-4 top-[52%] hidden h-px bg-linear-to-r from-indigo-300 via-indigo-400 to-indigo-300 opacity-70 dark:from-indigo-800/50 dark:via-indigo-500/60 dark:to-indigo-800/50 sm:block" />
 
                 {timeline.map((item, index) => (
                   <div
@@ -135,7 +135,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Diğer bölümler (zaten component olarak ayrılmış) */}
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />

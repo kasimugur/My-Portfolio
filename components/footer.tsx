@@ -1,4 +1,6 @@
-﻿export function Footer() {
+﻿import { Github, Linkedin, Mail } from "lucide-react";
+
+export function Footer() {
   const year = new Date().getFullYear();
 
   return (
@@ -13,13 +15,22 @@
         <span className="text-slate-500 dark:text-slate-500">
           Built with Next.js &amp; Tailwind CSS
         </span>
+        <div className="flex items-center gap-6 text-slate-600 dark:text-slate-400">
+            <a href="https://github.com/kasimugur" target="_blank" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+          <Github size={18} />
+        </a>
+        <a href="https://linkedin.com/in/kasimugur" target="_blank" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+          <Linkedin size={18} />
+          
+        </a>
         <a
           href="mailto:kasimugur.contact@gmail.com"
           className="text-indigo-600 transition hover:text-indigo-500 
                      dark:text-indigo-300 dark:hover:text-indigo-200"
         >
-          kasimugur.contact@gmail.com
+          <Mail size={18} />
         </a>
+        </div>
       </div>
     </footer>
   );
