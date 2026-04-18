@@ -51,7 +51,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-indigo-500/70 to-purple-500/70 text-white">
+          <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-indigo-500/70 to-purple-500/70 text-white">
             <span className="text-sm font-semibold uppercase tracking-widest">{title}</span>
           </div>
         )}

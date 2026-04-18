@@ -34,7 +34,7 @@ export function ProjectsSection() {
           My more important projects are the ones that bring measurable value.
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-300 text-base">
-          Here are the projects I've developed, focusing on product analytics,
+          Here are the projects I&apos;ve developed, focusing on product analytics,
           user feedback, and team cohesion.
         </p>
       </motion.div>

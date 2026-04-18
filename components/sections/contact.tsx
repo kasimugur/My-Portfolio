@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent,  useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/badge";
 import { useInViewAnimation } from "@/lib/hooks/useInViewAnimation";
@@ -20,7 +20,6 @@ export function ContactSection() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
 
   const headerAnimation = useInViewAnimation<HTMLDivElement>({ amount: 0.4 });
   const formAnimation = useInViewAnimation<HTMLFormElement>({ amount: 0.4 });
@@ -155,7 +154,7 @@ export function ContactSection() {
         <div className="flex flex-col items-start gap-4 text-sm text-slate-600 dark:text-slate-300 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
           >
             {isSubmitting ? 'Sending...' : 'Send message'}
           </button>

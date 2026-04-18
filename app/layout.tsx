@@ -1,41 +1,42 @@
-﻿// app/layout.tsx
-import './globals.css'
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { FloatingIcons } from "@/components/FloatingIcons";
-import { ThemeProvider } from "next-themes";
+﻿import './globals.css';
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
+import { FloatingIcons } from '@/components/FloatingIcons';
+import { ThemeProvider } from 'next-themes';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
 });
 
 export const metadata: Metadata = {
   title: "Kasım Uğur - Portfolio",
   description:
-    "Next.js ve Tailwind ile inşa edilmiş modern bir portföy. Kasım Uğur'un öne çıkan projelerini, teknik becerilerini ve iletişim kanallarını keşfedin.",
-  metadataBase: new URL("https://kasim-portfolio.local"),
+    "Modern portfolio built with Next.js and Tailwind CSS. Discover my featured projects, technical skills, and get in touch.",
+  metadataBase: new URL('https://kasimugur.com'), // Gerçek domainini buraya yaz
   openGraph: {
     title: "Kasım Uğur - Portfolio",
     description:
-      "Next.js ve Tailwind ile inşa edilmiş modern bir portföy. Öne çıkan projeler, teknik beceriler ve iletişim alanı.",
-    url: "https://kasim-portfolio.local",
+      "Frontend & Full-stack developer specializing in React and Next.js. Building fast, scalable, and beautiful digital experiences.",
+    url: "https://kasimugur.com",
     siteName: "Kasım Uğur Portfolio",
-    locale: "tr_TR",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Kasım Uğur - Portfolio",
     description:
-      "Frontend & Full-stack developer. React ve Next.js odaklı arayüzler ve ürünler.",
+      "Frontend & Full-stack developer • React, Next.js, TypeScript",
   },
 };
 
@@ -45,11 +46,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen `}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <FloatingIcons />
           <div className="flex min-h-screen flex-col">
             <Navbar />

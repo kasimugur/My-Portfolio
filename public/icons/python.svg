@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="py-top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3776ab" />
+      <stop offset="1" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="py-bottom" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#facc15" />
+      <stop offset="1" stop-color="#fb923c" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#0f172a" />
+  <path d="M60 26h12c10 0 18 8 18 18v16H60c-6 0-10 4-10 10v8H38c-10 0-18-8-18-18V44c0-10 8-18 18-18h14v6c0 4 2 6 8 6Z" fill="url(#py-top)" />
+  <path d="M60 94H48c-10 0-18-8-18-18V60h30c6 0 10-4 10-10v-8h12c10 0 18 8 18 18v16c0 10-8 18-18 18H68v-6c0-4-2-6-8-6Z" fill="url(#py-bottom)" />
+  <circle cx="50" cy="38" r="5" fill="#e2e8f0" />
+  <circle cx="70" cy="82" r="5" fill="#0f172a" />
+</svg>

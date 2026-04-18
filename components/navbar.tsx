@@ -1,9 +1,7 @@
 ﻿"use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
-import clsx from "clsx";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -14,8 +12,6 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-  const closeMenu = () => setMenuOpen(false);
 
   return (
     <motion.header
@@ -33,7 +29,6 @@ export function Navbar() {
           offset={-80}
           duration={500}
           spy
-          onClick={closeMenu}
           className="cursor-pointer text-lg font-semibold 
                      text-slate-900 dark:text-slate-100 
                      transition hover:text-slate-950 dark:hover:text-white"
@@ -65,34 +60,6 @@ export function Navbar() {
         <ThemeToggle />
       </nav>
 
-      {/* Mobile Menu */}
-      {/* <div
-        className={clsx(
-          "border-t px-4 pb-4 md:hidden",
-          "border-slate-200 dark:border-slate-900",
-          "bg-white dark:bg-[#1d293d]"
-        )}
-      >
-        <div className="flex flex-col gap-2 py-4 text-slate-800 dark:text-slate-300">
-          {navItems.map((item) => (
-            <ScrollLink
-              key={item.target}
-              to={item.target}
-              smooth
-              spy
-              offset={-80}
-              duration={500}
-              activeClass="bg-slate-100 dark:bg-[#0f172b] text-slate-950 dark:text-slate-50"
-              onClick={closeMenu}
-              className="cursor-pointer rounded-lg px-3 py-2 text-sm font-medium 
-                         transition hover:bg-slate-100 dark:hover:bg-[#0f172b] 
-                         hover:text-slate-950 dark:hover:text-slate-50"
-            >
-              {item.label}
-            </ScrollLink>
-          ))}
-        </div>
-      </div> */}
     </motion.header>
   );
 }

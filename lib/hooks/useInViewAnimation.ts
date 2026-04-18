@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView } from "framer-motion";
 
@@ -8,12 +10,17 @@ type InViewAnimationOptions = {
 };
 
 export function useInViewAnimation<T extends Element = HTMLElement>(
-  options: InViewAnimationOptions = {},
+  options: InViewAnimationOptions = {}
 ) {
   const { amount = 0.3, margin, animateOut = false } = options;
+
   const ref = useRef<T | null>(null);
   const controls = useAnimation();
-  const isInView = useInView(ref, { amount, margin });
+
+  const isInView = useInView(ref, {
+    amount,
+    margin: margin as any, // eslint-disable-line @typescript-eslint/no-explicit-any
+  });
 
   useEffect(() => {
     if (isInView) {

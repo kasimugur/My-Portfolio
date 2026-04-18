@@ -7,40 +7,66 @@
   featured?: boolean;
   image?: string;
 };
-
 export const projects: Project[] = [
   {
-    title: "E-Ticaret Paneli (MikroSatıcı)",
-    desc: "Sipariş, fatura ve kargo süreçlerini tek panelde toplayan, PDF çıktıları ve çoklu entegrasyonlarla desteklenen yönetim paneli.",
-    stack: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui", "PDFKit"],
-    demo: "https://demo.mikrosatici.app",
-    repo: "https://github.com/kasimugur/mikrosatici-panel",
+    title: "VibeBlog - Next Generation News Platform",
+    desc: "A modern Next.js-based news platform powered by NewsAPI, delivering real-time data flow. Showcases modern web engineering practices such as SSR, URL-based state management, and Error Boundaries, with a fully responsive design.",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Radix UI",
+      "Next-Themes",
+      "NewsAPI"
+    ],
+    demo: "https://vibe-blog-app.vercel.app/",
+    repo: "https://github.com/kasimugur/vibeblog",
     featured: true,
-    image: "/images/mikrosatici.svg",
+    image: "/projects/vibeblog-banner.png",
   },
   {
-  title: "Yaş Hesaplama Uygulaması (Age Calculator)",
-  desc: "Kullanıcıların doğum tarihlerini girerek yıl, ay ve gün bazında kesin yaşlarını hesaplamalarına olanak tanıyan, form doğrulama özellikli ve duyarlı (responsive) web uygulaması.",
-  stack: ["HTML", "CSS","SCSS", "JavaScript"],
-  demo: "https://age-calculator-birthday.netlify.app/",
-  repo: "https://github.com/kasimugur/age-culculator-app",
-  featured: true,
-  image: "/public/agecalculator.png", // Görsel yolunu projenize göre images/age-calculator.pnggüncelleyebilirsiniz
-},
-  {
-    title: "Formik + Yup Çok Adımlı Form",
-    desc: "Çok adımlı form sihirbazı, şema tabanlı doğrulama ve RTL/Jest testleri ile güvenilir kullanıcı deneyimi.",
-    stack: ["React", "Formik", "Yup", "RTL", "Jest"],
-    repo: "https://github.com/kasimugur/multistep-formik",
-    image: "/images/formik-yup.svg",
+    title: "CineSearch - Movie Discovery App",
+    desc: "A modern Next.js-based movie and TV discovery platform powered by the TVMaze API. Features dynamic search, highlighted content, responsive design, and critical components tested with Jest and React Testing Library.",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS",
+      "Jest",
+      "React Testing Library",
+      "TVMaze API"
+    ],
+    demo: "https://movie-app-liard-tau.vercel.app/",
+    repo: "https://github.com/kasimugur/movie-app",
+    featured: true,
+    image: "/projects/cinesearch-banner.png",
   },
   {
-    title: "Popup Generator",
-    desc: "Tailwind projeleri için tekrar kullanılabilir, temalı modal bileşenleri üreten araç.",
-    stack: ["TypeScript", "Next.js", "Redux", "Tailwind"],
-    demo: "https://popup-generator.dev",
-    repo: "https://github.com/kasimugur/popup-generator",
+    title: "NexusDash - The Ultimate SaaS Prototyping Engine",
+    desc: "A high-performance Next.js 16 application for SaaS founders and developers to prototype enterprise-grade dashboards in seconds. Features a Zustand-powered state engine, sector-specific template presets, and a dynamic code generator.",
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Zustand",
+      "Recharts",
+      "Lucide React",
+      "Next-Themes"
+    ],
+    demo: "https://dashboard-generator-peach.vercel.app/",
+    repo: "https://github.com/kasimugur/dashboard-generator",
     featured: true,
-    image: "/images/popup-generator.svg",
+    image: "/projects/nexusdash-banner.png",
+  },
+  {
+    title: "Age Calculator App",
+    desc: "A responsive web application that allows users to calculate their exact age in years, months, and days by entering their birthdate. Includes form validation and a clean UI.",
+    stack: ["HTML", "CSS", "SCSS", "JavaScript"],
+    demo: "https://age-calculator-birthday.netlify.app/",
+    repo: "https://github.com/kasimugur/age-culculator-app",
+    featured: true,
+    image: "/projects/agecalculator.png",
   },
 ];
+

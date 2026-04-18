@@ -58,7 +58,7 @@ export function SkillsSection() {
       className="mx-auto w-full max-w-6xl px-4 py-20 z-30"
     >
       <div
-        className="rounded-[2rem] border p-10 shadow-xl backdrop-blur
+        className="rounded-4xl border p-10 shadow-xl backdrop-blur
                    border-slate-200 bg-white/90 
                    dark:border-slate-800 dark:bg-slate-900/70 
                    dark:shadow-[0_32px_90px_rgba(2,6,23,0.45)]"
